@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Dad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Images around the letter -->
+  <div class="images">
+    <img src="momndad.JPG" class="image image1" alt="Image 1"> 
+    <img src="wed.JPG" class="image image2" alt="Image 2">
+    <img src="family.JPG" class="image image3" alt="Image 3"> 
+    <img src="mendad.JPG" class="image image4" alt="Image 4">
+    <img src="gradtwin.JPG" class="image image5" alt="Image 5">
+    <img src="grad.JPG" class="image image6" alt="Image 6">
+  </div>
+
+  <div class="container">
+    <section class="letter">
+      <header>
+        <h1>Happy Birthday,<span class="highlight"> Dad</span>!</h1>
+        <h3>Ephesians 1:16-17</h3>
+      </header>
+
+      <p>
+        Man you old bruh, anyways.
+        <br><br>
+        I just wanna say that I’m thankful for all the things that you have taught me. Can’t remember off the top my head, but when the time comes I’m sure to remember (allegedly).<br><br>
+        Thank you for setting a good example of what to strive for and when falling off being there to give me proper guidance.<br>
+        Thank you for giving me the tools and showing me the proper foundation to succeeded.<br>
+        I really appreciate your presence and your wisdom dad.
+        <br><br>
+        I hope you have a great old, senior citizen’s Birthday.
+        <br><br>
+        Your Son, Brandon
+      </p> 
+
+      <footer>
+        <p>I love you, Dad.💙</p>
+      </footer>
+    </section>
+
+    <!-- Slideshow for mobile view -->
+    <div class="slideshow">
+      <div class="slide-track">
+        <div class="slide"><img src="momndad.JPG" alt="Image 1"></div>
+        <div class="slide"><img src="wed.JPG" alt="Image 2"></div>
+        <div class="slide"><img src="family.JPG" alt="Image 3"></div>
+        <div class="slide"><img src="mendad.JPG" alt="Image 4"></div>
+        <div class="slide"><img src="gradtwin.JPG" alt="Image 5"></div>
+        <div class="slide"><img src="grad.JPG" alt="Image 6"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'prev');
+        if (i === index) {
+          slide.classList.add('active');
+        } else if (i === (index - 1 + slides.length) % slides.length) {
+          slide.classList.add('prev');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+
+    // Allow clicking on an image to move to the next slide
+    slides.forEach(slide => {
+      slide.addEventListener('click', nextSlide);
+    });
+
+    showSlide(currentSlide);
+
+  </script>
+</body>
+</html>
+
